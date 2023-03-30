@@ -11,7 +11,7 @@ import com.mongodb.client.MongoClients;
 @Configuration
 public class AppConfig {
 
-    @Value("${mongo.url}")
+    @Value("${spring.datasource.mongo.url}")
     private String mongoUrl;
 
     @Bean
