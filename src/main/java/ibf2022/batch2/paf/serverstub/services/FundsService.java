@@ -22,7 +22,9 @@ public class FundsService {
             float accountFromBalance = accountFrom.getBalance();
             if (amount < accountFromBalance) {
                 accountFrom.setBalance(accountFromBalance - amount);
+                fundsRepo.transactionStatus((accountFromBalance - amount), accountFrom.getFullName());
                 accountTo.setBalance(accountTo.getBalance() + amount);
+                fundsRepo.transactionStatus(accountTo.getBalance() + amount, accountTo.getFullName());
                 return "success";
             }
         } catch (Exception e) {

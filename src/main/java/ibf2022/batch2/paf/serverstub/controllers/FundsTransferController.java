@@ -26,6 +26,7 @@ public class FundsTransferController {
 
 		String transactionStatus = fundsSvc.postTransfer(transferInfo.getSrcAcct(), transferInfo.getDestAcct(),
 				transferInfo.getAmount());
+		System.out.println(transferInfo.getSrcAcct());
 		System.out.println("Status: " + transactionStatus);
 		if (transactionStatus == null) {
 			return ResponseEntity.badRequest().body(Json.createObjectBuilder().add("message", "Insufficient amount.")
